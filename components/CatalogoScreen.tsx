@@ -3,22 +3,27 @@ import {
   View, 
   Text, 
   StyleSheet, 
-  FlatList, 
   Image, 
   Pressable, 
-  ScrollView, 
-  Linking 
+  ScrollView,
+  Linking // Importa a API Linking para abrir URLs
 } from "react-native";
 import catalogo from "../catalogo.json";
 
+// O componente principal da sua tela de catálogo.
+// Ele gerencia a exibição da playlist ou das informações do artista.
 export default function CatalogoScreen() {
+  // Define os caminhos das imagens que serão usadas no app.
   const capaMusica = require("../assets/images/capa_kayblack.jpg");
   const fotoArtista = require("../assets/images/kayblack_foto.jpg");
 
+  // 'useState' é um hook do React que cria uma variável de estado.
   const [showSobre, setShowSobre] = useState(false);
 
+  // Informações mais detalhadas sobre o artista.
   const biografia = "KayBlack, nome artístico de Kaique Menezes, é uma das maiores revelações do trap e R&B brasileiro. Nascido em São Paulo, ele se destacou com sua voz melódica e letras que exploram temas de amor, desilusão e a realidade das ruas. Sua música é uma fusão única de trap melódico, R&B e influências do drill, criando um som autêntico que ressoa com a juventude. O álbum 'Contradições', lançado em 2023, solidificou sua posição como um artista versátil e influente no cenário musical, com hits como 'Melhor Só' e 'Sal e Pimenta' que se tornaram virais. Sua jornada é um testemunho de seu talento e capacidade de conectar com o público de forma profunda e genuína.";
 
+  // Função para abrir o link da música no YouTube Music.
   const handlePress = (link) => {
     Linking.canOpenURL(link).then(supported => {
       if (supported) {
@@ -30,9 +35,11 @@ export default function CatalogoScreen() {
   };
 
   return (
+    // O 'ScrollView' agora envolve todo o conteúdo, incluindo a lista de músicas,
+    // para permitir a rolagem.
     <ScrollView style={styles.container}>
       
-      {/* Cabeçalho da Playlist */}
+      {/* Cabeçalho da playlist */}
       <View style={styles.headerBox}>
         <Image source={capaMusica} style={styles.playlistImage} />
         <View style={styles.headerTextBox}>
@@ -64,6 +71,7 @@ export default function CatalogoScreen() {
 
       {/* Renderização Condicional */}
       {showSobre ? (
+        // Tela 'Sobre o Artista'
         <View style={styles.sobreBox}>
           <Image source={fotoArtista} style={styles.artistaImage} />
           <Text style={styles.artistaNome}>KayBlack</Text>
@@ -72,15 +80,18 @@ export default function CatalogoScreen() {
           </Text>
         </View>
       ) : (
-        <FlatList
-          data={catalogo}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              {/* Contêiner para o conteúdo do card, incluindo o botão de reproduzir */}
+        // Substituímos a FlatList por um View que contém o .map()
+        <View>
+          {/*
+            O método '.map()' itera sobre cada item do array 'catalogo'.
+            Para cada 'item' no array, ele retorna o JSX (o código visual)
+            que você quer exibir.
+          */}
+          {catalogo.map((item) => (
+            // A 'key' é essencial quando se usa .map() para listas,
+            // pois ajuda o React a identificar cada elemento e otimizar a renderização.
+            <View key={item.id} style={styles.card}>
               <View style={styles.cardContent}>
-                
-                {/* Contêiner para a imagem e os textos */}
                 <View style={styles.cardInfo}>
                   <Image source={capaMusica} style={styles.musicaImage} />
                   <View style={styles.textBox}>
@@ -89,7 +100,6 @@ export default function CatalogoScreen() {
                     <Text style={styles.ano}>{item.ano}</Text>
                   </View>
                 </View>
-
                 {/* Botão de Reprodução */}
                 <Pressable 
                   style={styles.playButton} 
@@ -99,8 +109,8 @@ export default function CatalogoScreen() {
                 </Pressable>
               </View>
             </View>
-          )}
-        />
+          ))}
+        </View>
       )}
     </ScrollView>
   );
@@ -169,11 +179,11 @@ const styles = StyleSheet.create({
   },
   activeButton: { 
     backgroundColor: "#2C2C2C" 
-  },
+  }, 
   activeButtonText: { 
     color: "#fff", 
     fontWeight: "bold" 
-  },
+  }, 
 
   // Estilos dos Cards da lista de músicas
   card: {
@@ -190,12 +200,12 @@ const styles = StyleSheet.create({
   cardContent: { 
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between", // Adiciona espaço entre os elementos
+    justifyContent: "space-between",
   },
   cardInfo: {
     flexDirection: "row",
     alignItems: "center",
-    flex: 1, // Permite que a seção de texto e imagem ocupe o espaço necessário
+    flex: 1,
   },
   musicaImage: { 
     width: 60, 
@@ -204,7 +214,7 @@ const styles = StyleSheet.create({
     marginRight: 15 
   },
   textBox: { 
-    flexShrink: 1, // Permite que o texto quebre linha se necessário
+    flexShrink: 1,
   },
   titulo: { 
     fontSize: 18, 

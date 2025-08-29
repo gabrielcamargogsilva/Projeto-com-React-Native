@@ -1,50 +1,87 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Meu Catálogo Pessoal
 
-## Get started
+Este é um aplicativo móvel de tela única, desenvolvido com **React Native** e **Expo**, que exibe uma coleção de itens pessoais. O projeto segue os requisitos de uma atividade acadêmica e foi criado para demonstrar a utilização de componentes, estilização com `StyleSheet`, e a renderização dinâmica de dados a partir de um arquivo JSON.
 
-1. Install dependencies
+---
 
+## Status do Projeto
+✅ Projeto Finalizado
+
+---
+
+## Índice
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Como Rodar o Projeto](#como-rodar-o-projeto)
+- [Autor](#autor)
+- [Licença](#licença)
+
+---
+
+## Funcionalidades
+- Exibição de uma lista de itens de um catálogo (músicas, filmes, livros, etc.).
+- Renderização dinâmica dos itens usando o método `.map()`.
+- Estilização de cada item como um "card" com borda, sombra e cor de fundo.
+- Navegação entre as telas "Músicas" e "Sobre o Artista" com botões de alternância.
+- Integração com a API nativa de `Linking` para abrir URLs externas.
+
+---
+
+## Tecnologias Utilizadas
+
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+![Flexbox](https://img.shields.io/badge/Flexbox-Layout-blue?style=for-the-badge)
+
+---
+
+## Estrutura do Projeto
+- O projeto foi inicializado com `npx create-expo-app`.
+- Toda a lógica da tela principal (`app/index.tsx`) é simplificada para apenas renderizar o componente principal.
+- A pasta `components` contém o componente `CatalogoScreen.tsx`, onde toda a lógica, importação de dados e estilização da tela foram implementadas.
+- O arquivo `catalogo.json` na raiz do projeto é a fonte de dados.
+
+---
+
+## Como Rodar o Projeto
+
+### Pré-requisitos
+- Node.js e npm (ou yarn) instalados
+- Expo CLI instalado globalmente (`npm install -g expo-cli`)
+
+### Instalação
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+   cd seu-repositorio
+   ```
+
+2. **Instale as dependências:**
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. **Inicie o projeto Expo:**
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+4. **Escaneie o código QR:** Use o aplicativo Expo Go no seu celular (iOS ou Android) para escanear o código QR exibido no terminal e ver o aplicativo rodando no seu dispositivo.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Autor
+- **Gabriel Camargo Gonçalves Silva**  
+  [GitHub](https://github.com/gabrielcamargogsilva)  
+  • gabriel.cgsilva.senai@gmail.com  
+  • gabrielcamargogsilva@gmail.com
 
-## Get a fresh project
+---
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Licença
+Este projeto está licenciado sob a Licença MIT.
