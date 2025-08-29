@@ -57,8 +57,8 @@ Este é um aplicativo móvel de tela única, desenvolvido com **React Native** e
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-   cd seu-repositorio
+   git clone [https://github.com/gabrielcamargogsilva/Projeto-com-React-Native.git](https://github.com/gabrielcamargogsilva/Projeto-com-React-Native.git)
+   cd Projeto-com-React-Native
    ```
 
 2. **Instale as dependências:**
