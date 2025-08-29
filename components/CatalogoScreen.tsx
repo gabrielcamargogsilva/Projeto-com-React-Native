@@ -24,7 +24,7 @@ export default function CatalogoScreen() {
   const biografia = "KayBlack, nome artístico de Kaique Menezes, é uma das maiores revelações do trap e R&B brasileiro. Nascido em São Paulo, ele se destacou com sua voz melódica e letras que exploram temas de amor, desilusão e a realidade das ruas. Sua música é uma fusão única de trap melódico, R&B e influências do drill, criando um som autêntico que ressoa com a juventude. O álbum 'Contradições', lançado em 2023, solidificou sua posição como um artista versátil e influente no cenário musical, com hits como 'Melhor Só' e 'Sal e Pimenta' que se tornaram virais. Sua jornada é um testemunho de seu talento e capacidade de conectar com o público de forma profunda e genuína.";
 
   // Função para abrir o link da música no YouTube Music.
-  const handlePress = (link) => {
+  const handlePress = (link:string) => {
     Linking.canOpenURL(link).then(supported => {
       if (supported) {
         Linking.openURL(link);
@@ -80,7 +80,7 @@ export default function CatalogoScreen() {
           </Text>
         </View>
       ) : (
-        // Substituímos a FlatList por um View que contém o .map()
+
         <View>
           {/*
             O método '.map()' itera sobre cada item do array 'catalogo'.
